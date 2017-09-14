@@ -178,3 +178,19 @@ Footnotes: notes
 
 ..  [#f1] Text of the first footnote.
 ..  [#f2] Text of the second footnote.
+
+
+Code Documentation
+------------------
+
+..  autofunction:: ext.documentation.function_with_types_in_docstring
+
+..  autofunction:: ext.documentation.module_level_function
+
+..  autofunction:: ext.documentation.example_generator
+
+..  autoexception:: ext.documentation.ExampleError
+
+..  autoclass:: ext.documentation.ExampleClass
+    :special-members:
+    :members:
