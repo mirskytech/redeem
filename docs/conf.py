@@ -201,3 +201,5 @@ scv_recent_tag = True
 scv_whitelist_tags = (re.compile(r'^\d+\.\d+(\.\d+)?$'),)
 scv_whitelist_branches = (re.compile(r'$^'), )
 
+autoclass_content = "both"
+

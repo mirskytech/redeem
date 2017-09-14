@@ -225,34 +225,23 @@ class ExampleError(Exception):
 class ExampleClass(object):
     """The summary line for a class docstring should fit on one line.
 
-    If the class has public attributes, they may be documented here
-    in an ``Attributes`` section and follow the same formatting as a
-    function's ``Args`` section. Alternatively, attributes may be documented
-    inline with the attribute's declaration (see __init__ method below).
-
-    Properties created with the ``@property`` decorator should be documented
-    in the property's getter method.
-
-    Attributes
-    ----------
-    attr1 : str
-        Description of `attr1`.
-    attr2 : :obj:`int`, optional
-        Description of `attr2`.
+    It may include what the purpose of this class is and how it should be used.
 
     """
 
     def __init__(self, param1, param2, param3):
-        """Example of docstring on the __init__ method.
+        """More detail on what gets initialized
 
-        The __init__ method may be documented in either the class level
-        docstring, or as a docstring on the __init__ method itself.
+        Parameters
+        ----------
+        param1
+            The first parameter.
+        param2
+            The second parameter.
 
-        Either form is acceptable, but the two should not be mixed. Choose one
-        convention to document the __init__ method and be consistent with it.
         """
-        self.attr1 = param1
-        self.attr2 = param2
+        self.attr1 = param1  #: description of the various class attributes
+        self.attr2 = param2  #: Description of `attr1`
         self.attr3 = param3  #: Doc comment *inline* with attribute
 
         #: list of str: Doc comment *before* attribute, with type specified

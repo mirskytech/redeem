@@ -183,14 +183,15 @@ Footnotes: notes
 Code Documentation
 ------------------
 
-..  autofunction:: ext.documentation.function_with_types_in_docstring
+Docstrings should use the NumPY format. Source code for these examples can be found at :doc:`examplepy`
 
-..  autofunction:: ext.documentation.module_level_function
+..  autofunction:: example.function_with_types_in_docstring
 
-..  autofunction:: ext.documentation.example_generator
+..  autofunction:: example.module_level_function
 
-..  autoexception:: ext.documentation.ExampleError
+..  autofunction:: example.example_generator
 
-..  autoclass:: ext.documentation.ExampleClass
-    :special-members:
+..  autoexception:: example.ExampleError
+
+..  autoclass:: example.ExampleClass
     :members:

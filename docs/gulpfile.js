@@ -23,7 +23,7 @@ gulp.task('less_to_css', function () {
 gulp.task('build_and_watch', ['less_to_css', 'sphinx_to_html'],function() {
    gulp.watch([
        './**/*.rst',
-       './ext/*.py',
+       './**/*.py',
        './theme**/*.css',
        './theme/*.html',
        './theme/**/*.less',
