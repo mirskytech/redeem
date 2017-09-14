@@ -301,7 +301,6 @@ Current
 ..  danger::
 
   Never run the Replicape with the steppers running above 0.5A without cooling.
-
   Never exceed 1.2A of regular use either - the TMC2100 drivers aren't
   rated higher. If you need more current to drive two motors off the
   same stepper, use slave mode with a second driver (usually H). While it
@@ -374,9 +373,9 @@ Decay
 The decay mode affects the way the stepper motor controllers
 decays the current. Basically slow decay will give more of a hissing
 sound while standing still and fast decay will cause the steppers to
-be silent when stationary, but loud when stepping. The microstepping\_
-settings is (2^x), so microstepping\_x = 2 means 2^2 = 4. 3 is then
-2^3 = 8. (One eighth to be precise)
+be silent when stationary, but loud when stepping. The microstepping_
+settings is :math:`2^x`, so ``microstepping_x = 2`` means :math:`2^2 = 4`.
+``3`` then is :math:`2^3 = 8` or one-eighth.
 
 On Replicape Rev B, there are 8 levels of decay. Please consult the `data sheet for TMC2100`__ on the different options.
 
