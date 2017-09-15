@@ -5,27 +5,41 @@ from sphinx import addnodes
 from docutils.parsers import rst
 
 from docs.ext.gcodes.nodes import GCodeNode, GCodeDescriptionNode, GCodeLongDescriptionNode
+from redeem.gcodes.GCodeCommand import GCodeCommand
+from redeem import gcodes as gcode_module
 
 
 class GCodeDirective(rst.Directive):
 
     name = 'gcodes'
 
-    def load_classes_in_module(self, module):
-        from redeem.gcodes.GCodeCommand import GCodeCommand
-        for module_name, obj in inspect.getmembers(module):
+    designator = 'G'
+
+    # def get_designator(self):
+    #     return 'G'
+
+    def __init__(self, *args, **kwargs):
+        super(GCodeDirective, self).__init__(*args, **kwargs)
+        self.gcodes = {}
+
+    def load_classes_in_module(self, module_to_load, designator):
+
+        for module_name, obj in inspect.getmembers(module_to_load):
 
             if inspect.ismodule(obj) and (obj.__name__.startswith('gcodes') or obj.__name__.startswith('redeem.gcodes')):
-                self.load_classes_in_module(obj)
-            elif inspect.isclass(obj) and issubclass(obj, GCodeCommand) and module_name != 'GCodeCommand' and module_name != 'ToolChange':
+                self.load_classes_in_module(obj, designator)
 
-                print("got gcode, wohoo {}".format(obj.__name__))
+            elif inspect.isclass(obj) and issubclass(obj, GCodeCommand) and module_name != 'GCodeCommand' and module_name != 'ToolChange' and obj.__name__.startswith(designator):
 
-    def run(self):
+                code_name = obj.__name__
+                designation = code_name[0]
+                identifier = code_name[1:]
+                if len(identifier):
+                    identifier = identifier.zfill(3)
+                sortable_key = "{}{}".format(designation, identifier)
+                self.gcodes[sortable_key] = obj
 
-        from redeem.gcodes.G1_G0 import G0
-        gcode = G0(None)
-
+    def create_gcode_node(self, gcode):
         gcode_node = GCodeNode()
         gcode_node['gcode'] = gcode
 
@@ -37,6 +51,12 @@ class GCodeDirective(rst.Directive):
         long_description['long-description'] = gcode.get_long_description()
         gcode_node += long_description
 
+        return gcode_node
+
+    def create_gcode_entry(self, gcode):
+
+        gcode_node = self.create_gcode_node(gcode)
+
         section = nodes.section()
         section += nodes.title(type(gcode).__name__, type(gcode).__name__)
 
@@ -44,5 +64,28 @@ class GCodeDirective(rst.Directive):
         lineno = self.state_machine.abs_line_number()
         self.state.add_target(type(gcode).__name__, '', target, lineno)
 
-        return [target, section, gcode_node, ]
+        return [target, section, gcode_node]
+
+    def run(self):
+        node_list = []
+
+        self.load_classes_in_module(gcode_module, self.designator)
+
+        for id in sorted(self.gcodes.keys()):
+            gcode_cls = self.gcodes[id]
+
+            try:
+                node_list += self.create_gcode_entry(gcode_cls(None))
+            except AttributeError:
+                pass
+
+        return node_list
+
+
+class MCodeDirective(GCodeDirective):
+    designator = 'M'
+
+
+class TCodeDirective(GCodeDirective):
+    designator = 'T'
 

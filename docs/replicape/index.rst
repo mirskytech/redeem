@@ -9,6 +9,7 @@ Replicape
     ./configuration.rst
     ./gcodes.rst
     ./mcodes.rst
+    ./tcodes.rst
     ./redeem.rst
     ./errata.rst
 

@@ -259,7 +259,7 @@ This section has the stuff you need for the the steppers:
     [Steppers]
 
 Microstepping
--------------
+~~~~~~~~~~~~~
 
 ::
 
