@@ -46,17 +46,16 @@ class GCodeDetailNode(nodes.General, nodes.Element):
 # GCODE LISTING NODE ################
 
 
-class GCodeListingNode(nodes.General, nodes.Element):
+class GCodeListNode(nodes.General, nodes.Element):
     pass
 
 
-def gcode_visit(self, node):
+def gcode_list_visit(self, node):
+    self.body.append("<table>".format(node.title))
 
-    self.body.append("<p>gcode start: {}</p>".format(node.title))
 
-
-def gcode_depart(self, node):
-    self.body.append("<p>gcode end: {}</p>".format(node.title))
+def gcode_list_depart(self, node):
+    self.body.append("</table>".format(node.title))
 
 
 class GCodeDirective(rst.Directive):
@@ -99,6 +98,12 @@ class GCodeDirective(rst.Directive):
         # # gcodenode2 += addnodes.desc_content('long description of the second gcode ')
         #
         # return [targetnode1, gcodenode1, ]
+
+        list = GCodeListNode('')
+
+        gcode = GCodeNode('')
+
+        name = GCodeNameNode('gcode1')
 
 
 
