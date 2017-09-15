@@ -2146,6 +2146,9 @@ fieldset[disabled] .btn-version.focus {
   margin-left: 20px;
   text-transform: none;
 }
+.version-select .dropdown-menu {
+  width: 300px;
+}
 .version-select .version-num,
 .version-select .version-msg {
   font-size: 12px;
@@ -2157,6 +2160,17 @@ fieldset[disabled] .btn-version.focus {
 }
 .version-select .version-previous {
   color: #f77b6b;
+}
+.version-select .tag-list,
+.version-select .branch-list {
+  display: inline-block;
+  min-width: 120px;
+}
+.version-select .tag-list h5,
+.version-select .branch-list h5 {
+  color: #494d55;
+  margin: 3px 0;
+  font-weight: 600;
 }
 .topic-title.first {
   font-size: 24px;
