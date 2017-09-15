@@ -22,6 +22,7 @@ class GCodeDirective(rst.Directive):
         super(GCodeDirective, self).__init__(*args, **kwargs)
         self.gcodes = {}
 
+    # code borrowed from redeem.gcodeprocessor.Processor
     def load_classes_in_module(self, module_to_load, designator):
 
         for module_name, obj in inspect.getmembers(module_to_load):
@@ -31,11 +32,19 @@ class GCodeDirective(rst.Directive):
 
             elif inspect.isclass(obj) and issubclass(obj, GCodeCommand) and module_name != 'GCodeCommand' and module_name != 'ToolChange' and obj.__name__.startswith(designator):
 
+                # create the key to sort the classes
                 code_name = obj.__name__
-                designation = code_name[0]
-                identifier = code_name[1:]
+                designation = code_name[0]  # G/M/T
+                identifier = code_name[1:]  # number
+
+                # since some gcodes have trailing _1,_2,etc let's add _0 so that we can still alphabetize
+                if '_' not in identifier:
+                    identifier = "{}_0".format(identifier)
+
+                # want to make sure G2 is followed by G3, not G29, so pad with zeros
                 if len(identifier):
-                    identifier = identifier.zfill(3)
+                    identifier = identifier.zfill(5)
+
                 sortable_key = "{}{}".format(designation, identifier)
                 self.gcodes[sortable_key] = obj
 
