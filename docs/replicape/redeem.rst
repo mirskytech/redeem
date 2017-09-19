@@ -3,7 +3,9 @@ Redeem
 
 Redeem is the Replicape firmware; it is a daemon process that chews G-codes
 and spits out coordinates. The software can be found in the redeem repository:
-https://bitbucket.org/intelligentagent/redeem
+https://github.com/intelligent-agent/redeem
+
+..  _RedeemArchitecture:
 
 Architecture
 ------------
