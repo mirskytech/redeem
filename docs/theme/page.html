@@ -49,35 +49,7 @@
                         </a>
                     </div>
                     <div class="version-select">
-                        <div class="dropdown">
-                          <button class="btn btn-version dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                              {%- if current_version -%}
-                                version {{ current_version}}
-                              {%- else -%}
-                                version 0.0.0
-                              {%- endif -%}
-                              &nbsp;
-                              <span class="caret"></span>
-                          </button>
-                          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                              {%- if versions -%}
-                                {%- for name, url in versions.tags %}
-                                    <li><a href="{{ url }}">v {{ name }}</a></li>
-                                {%- endfor -%}
-                              {%- else -%}
-                                <li><a href="#">development mode</a></li>
-                              {%- endif %}
-                          </ul>
-                            {%- if current_version -%}
-                                {%- if scv_is_recent_ref -%}
-                                    <span class="version-msg version-latest">&nbsp; ( stable release )</span>
-                                {%- else -%}
-                                    <span class="version-msg version-previous">&nbsp; ( previous release )</span>
-                                {%- endif -%}
-                            {%- else -%}
-                                <span class="version-msg">&nbsp; ( development mode )</span>
-                            {%- endif -%}
-                        </div>
+                        {% include "versions.html" %}
                     </div>
                 </div><!--//branding-->
                 <ol class="breadcrumb">

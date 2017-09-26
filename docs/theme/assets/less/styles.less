@@ -366,6 +366,9 @@ img {
   display:inline-block;
   margin-left: 20px;
   text-transform: none;
+  .dropdown-menu {
+    width:300px;
+  }
 
   .version-num, .version-msg {
     font-size:12px;
@@ -379,6 +382,18 @@ img {
   .version-previous {
     color: @color-red;
   }
+
+  .tag-list, .branch-list {
+    display:inline-block;
+    min-width:120px;
+
+    h5 {
+      color: @text-color;
+      margin: 3px 0;
+      font-weight:600;
+    }
+  }
+
 
 }
 
