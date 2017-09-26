@@ -24,10 +24,11 @@ gulp.task('build_and_watch', ['less_to_css', 'sphinx_to_html'],function() {
    gulp.watch([
        './**/*.rst',
        './**/*.py',
+       '../redeem/**/*.py',
        './theme**/*.css',
        './theme/*.html',
        './theme/**/*.less',
-       './theme/**/*.js'
+       './theme/**/*.js',
    ], ['less_to_css','sphinx_to_html']);
 });
 

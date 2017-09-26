@@ -4,8 +4,11 @@ Circular movement
 
 Author: Elias Bakken
 """
+from docutils.core import publish_string, publish_parts
 
 from GCodeCommand import GCodeCommand
+from redeem.TextWriter import TextWriter, TextTranslator
+
 try:
     from Path import Path, RelativePath, AbsolutePath
 except ImportError:
@@ -67,6 +70,16 @@ class G2(GCodeCommand):
    
     def get_description(self):
         return ("Clockwise arc")
+
+    def get_long_description(self):
+        return """
+==== ============
+abc  def
+ghi  jkl
+mno  pqr
+stu  vxyz
+==== ============
+"""
 
     def is_buffered(self):
         return True
