@@ -9,6 +9,7 @@ import re
 import textwrap
 
 from docutils import nodes, writers
+from docutils.core import publish_string
 
 admonitionlabels = {
     'attention': 'Attention',
@@ -763,3 +764,11 @@ class TextTranslator(nodes.NodeVisitor):
 
     def unknown_visit(self, node):
         raise NotImplementedError('Unknown node: ' + node.__class__.__name__)
+
+text_writer = TextWriter()
+text_writer.translator_class = TextTranslator
+
+def to_plain_text(formatted_text):
+    w = TextWriter()
+    w.translator_class = TextTranslator
+    return publish_string(string,writer=_w)
