@@ -204,9 +204,9 @@ import re
 scv_sort = ('semver',)
 scv_recent_tag = True
 scv_whitelist_tags = (re.compile(r'^\d+\.\d+(\.\d+)?$'),)
-scv_whitelist_branches = ('develop', )
+scv_whitelist_branches = ('develop', 'latest')
 
 autoclass_content = "both"
 
-github_project = 'intelligent-agent/redeem'
-github_branch = 'develop'
+github_project = 'replicape/redeem'
+github_branch = 'latest'
