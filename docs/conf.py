@@ -90,7 +90,7 @@ author = u'Elias Bakken'
 # built documents.
 #
 # The short X.Y version.
-version = u'0.0.0'
+version = u'2.0.5'
 # The full version, including alpha/beta/rc tags.
 release = u'0.0.0'
 
@@ -208,5 +208,13 @@ scv_whitelist_branches = ('develop', 'latest')
 
 autoclass_content = "both"
 
-github_project = 'replicape/redeem'
-github_branch = 'latest'
+github_main_dev_project = 'intelligent-agent/redeem'
+github_main_dev_branch = 'develop'
+
+github_doc_edit_project = 'intelligent-agent/redeem'
+github_doc_edit_branch = 'develop'
+
+# rst_prolog = """
+# .. |GithubMainDevProject| replace:: {}
+# .. |GithubMainDevBranch| replace:: {}
+# """.format(github_main_dev_project, github_main_dev_branch)
