@@ -211,8 +211,8 @@ autoclass_content = "both"
 github_main_dev_project = 'intelligent-agent/redeem'
 github_main_dev_branch = 'develop'
 
-github_doc_edit_project = 'intelligent-agent/redeem'
-github_doc_edit_branch = 'develop'
+github_doc_edit_project = 'replicape/redeem'
+github_doc_edit_branch = 'latest'
 
 # rst_prolog = """
 # .. |GithubMainDevProject| replace:: {}
