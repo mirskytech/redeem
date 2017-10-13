@@ -2,7 +2,7 @@ import mock
 from random import random
 
 from .MockPrinter import MockPrinter
-from Path import Path
+from redeem.Path import Path
 
 
 class M83_Tests(MockPrinter):

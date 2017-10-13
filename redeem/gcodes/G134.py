@@ -25,7 +25,7 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 import logging
 
 from .GCodeCommand import GCodeCommand
-from Gcode import Gcode
+from redeem.Gcode import Gcode
 
 
 class G134(GCodeCommand):

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Plugin for VCNL4000 IR proximity sensor from Adafruit
 
@@ -21,7 +22,7 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 """
 
 
-from Adafruit_I2C import Adafruit_I2C
+from redeem.Adafruit_I2C import Adafruit_I2C
 import time
 import subprocess
 

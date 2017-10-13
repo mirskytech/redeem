@@ -12,7 +12,7 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 import logging
 
 from .GCodeCommand import GCodeCommand
-from Path import Path, RelativePath, AbsolutePath, MixedPath
+from redeem.Path import Path, RelativePath, AbsolutePath, MixedPath
 
 
 class G0(GCodeCommand):

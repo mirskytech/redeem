@@ -1,6 +1,6 @@
-from .MockPrinter import MockPrinter
+from tests.gcode.MockPrinter import MockPrinter
 import mock
-from Gcode import Gcode
+from redeem.Gcode import Gcode
 import re
 import time
 import logging

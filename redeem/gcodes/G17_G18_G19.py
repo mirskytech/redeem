@@ -10,7 +10,7 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
 from .GCodeCommand import GCodeCommand
-from Path import Path
+from redeem.Path import Path
 
 
 
