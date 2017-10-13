@@ -15,7 +15,7 @@ import logging
 import numpy as np
 
 from .GCodeCommand import GCodeCommand
-from ..BedCompensation import BedCompensation
+from redeem.BedCompensation import BedCompensation
 
 
 class M561(GCodeCommand):

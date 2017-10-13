@@ -24,8 +24,8 @@ import numpy as np
 from .GCodeCommand import GCodeCommand
 
 
-from ..Gcode import Gcode
-from ..Path import Path
+from redeem.Gcode import Gcode
+from redeem.Path import Path
 
 
 class G33(GCodeCommand):

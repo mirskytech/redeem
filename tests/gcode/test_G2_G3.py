@@ -4,7 +4,7 @@ import itertools
 import numpy as np
 from mock import Mock
 
-from MockPrinter import MockPrinter
+from .MockPrinter import MockPrinter
 
 show_plots = False
 try:

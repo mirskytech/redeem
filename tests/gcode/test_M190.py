@@ -1,4 +1,4 @@
-from MockPrinter import MockPrinter
+from .MockPrinter import MockPrinter
 import mock
 from random import random
 from Gcode import Gcode

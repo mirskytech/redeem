@@ -12,7 +12,7 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 import logging
 
 from .GCodeCommand import GCodeCommand
-from ..Stepper import Stepper
+from redeem.Stepper import Stepper
 
 
 class M909(GCodeCommand):
