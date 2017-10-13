@@ -1,7 +1,9 @@
-from MockPrinter import MockPrinter
 import mock
 from random import random
+
+from .MockPrinter import MockPrinter
 from Path import Path
+
 
 class M83_Tests(MockPrinter):
 

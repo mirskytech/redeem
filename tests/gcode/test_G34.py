@@ -1,4 +1,4 @@
-from MockPrinter import MockPrinter
+from .MockPrinter import MockPrinter
 import mock
 from testfixtures import Comparison as C
 from Gcode import Gcode

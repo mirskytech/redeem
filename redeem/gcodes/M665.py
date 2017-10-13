@@ -12,7 +12,7 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 import logging
 
 from .GCodeCommand import GCodeCommand
-from ..Delta import Delta
+from redeem.Delta import Delta
 
 
 class M665(GCodeCommand):

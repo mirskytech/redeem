@@ -12,8 +12,8 @@ import os
 import logging
 
 from .GCodeCommand import GCodeCommand
-from ..Printer import Printer
-from ..Path import Path
+from redeem.Printer import Printer
+from redeem.Path import Path
 
 class M83(GCodeCommand):
 

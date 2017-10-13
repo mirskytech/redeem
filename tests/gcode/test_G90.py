@@ -1,4 +1,4 @@
-from MockPrinter import MockPrinter
+from .MockPrinter import MockPrinter
 import mock
 from Path import Path
 from Gcode import Gcode
