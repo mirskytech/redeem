@@ -36,7 +36,7 @@ class PluginsController:
         self.plugins = {}
 
         # Load the plugins specified by the config
-        pluginsToLoad = [v.strip() for v in self.printer.config.get('System', 'plugins', '').split(',')]
+        pluginsToLoad = [v.strip() for v in self.printer.config.get('System', 'plugins').split(',')]
         pluginClasses = PluginsController.get_plugin_classes()
 
         for plugin in pluginsToLoad:
@@ -84,8 +84,8 @@ class PluginsController:
     @staticmethod
     def load_classes_in_module(module, classes):
         for module_name, obj in inspect.getmembers(module):
-            if inspect.ismodule(obj) and (obj.__name__.startswith('plugins')
-                or obj.__name__.startswith('redeem.plugins')):
+            if inspect.ismodule(obj) and \
+                    (obj.__name__.startswith('plugins') or obj.__name__.startswith('redeem.plugins')):
                 PluginsController.load_classes_in_module(obj, classes)
             elif inspect.isclass(obj) and \
                     issubclass(obj, AbstractPlugin.AbstractPlugin) and \
@@ -111,7 +111,7 @@ if __name__ == '__main__':
                         format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                         datefmt='%m-%d %H:%M')
 
-    print "Available plugins:"
+    print("Available plugins:")
 
     descriptions = PluginsController.get_supported_plugins_and_description()
 
@@ -121,4 +121,4 @@ if __name__ == '__main__':
                 s for s in re.split(r'(\d+)', string_)]
 
     for name in sorted(descriptions, key=_natural_key):
-        print name + "\t\t" + descriptions[name]
+        print(name + "\t\t" + descriptions[name])

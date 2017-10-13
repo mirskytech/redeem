@@ -23,7 +23,7 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 from threading import Thread
 import time
 import math
-import Queue
+from queue import Queue
 import numpy as np
 from multiprocessing import JoinableQueue
 import logging

@@ -2,8 +2,12 @@ import unittest
 import mock
 import os
 import sys
+import numpy as np
+
 sys.path.insert(0, '../redeem')
 # sys.path.insert(0, './gcode/TestStubs')
+
+print(sys.modules)
 
 sys.modules['evdev'] = mock.Mock()
 sys.modules['RotaryEncoder'] = mock.Mock()
@@ -28,10 +32,16 @@ sys.modules['JoinableQueue'] = mock.Mock()
 sys.modules['USB'] = mock.Mock()
 sys.modules['Ethernet'] = mock.Mock()
 sys.modules['Pipe'] = mock.Mock()
+# sys.modules['PWM'] = mock.Mock()
+# sys.modules['Mosfet'] = mock.Mock()
 
-from CascadingConfigParser import CascadingConfigParser
-from Redeem import *
-from EndStop import EndStop
+from redeem.CascadingConfigParser import CascadingConfigParser
+from redeem.EndStop import EndStop
+from Gcode import Gcode
+from Path import Path
+import PathPlanner
+from Extruder import Extruder, HBP
+from Redeem import Redeem
 
 
 """
@@ -81,11 +91,11 @@ log_to_file = False
     # instantiated, still need to mock the initialization of the native planner (`_init_path_planner`).
 
     @classmethod
-    @mock.patch.object(EndStop, "_wait_for_event", new=None)
-    @mock.patch.object(PathPlanner, "_init_path_planner")
+    @mock.patch.object(EndStop, "_wait_for_event")
+    # @mock.patch.object(PathPlanner, "_init_path_planner")
     @mock.patch.object(CascadingConfigParser, "get_key")
-    @mock.patch("Redeem.CascadingConfigParser", new=CascadingConfigParserWedge)
-    def setUpClass(cls, mock_get_key, mock_init_path_planner):
+    # @mock.patch("Redeem.CascadingConfigParser")
+    def setUpClass(cls, mock_wait_for_event, mock_get_key):
 
         mock_get_key.return_value = "TESTING_DUMMY_KEY"
 

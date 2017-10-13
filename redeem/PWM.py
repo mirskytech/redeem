@@ -44,7 +44,7 @@ class PWM(object):
     @staticmethod
     def __init_pwm():
         kernel_version = subprocess.check_output(["uname", "-r"]).strip()
-        [major, minor, rev] = kernel_version.split("-")[0].split(".")
+        [major, minor, rev] = kernel_version.split(b"-")[0].split(b".")
         if (int(major) == 3 and int(minor) >= 14) or int(major) > 3 :
             PWM.i2c = Adafruit_I2C(0x70, 2, False)  # Open device
         else:

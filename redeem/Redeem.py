@@ -32,7 +32,7 @@ import signal
 import threading
 from threading import Thread
 from multiprocessing import JoinableQueue
-import Queue
+from queue import Queue
 import numpy as np
 import sys
 
@@ -230,7 +230,7 @@ class Redeem:
 
         # Enable the steppers and set the current, steps pr mm and
         # microstepping
-        for name, stepper in self.printer.steppers.iteritems():
+        for name, stepper in self.printer.steppers.items():
             stepper.in_use = printer.config.getboolean('Steppers', 'in_use_' + name)
             stepper.direction = printer.config.getint('Steppers', 'direction_' + name)
             stepper.has_endstop = printer.config.getboolean('Endstops', 'has_' + name)
@@ -347,7 +347,7 @@ class Redeem:
             servo_nr += 1
 
         # Connect thermitors to fans
-        for t, therm in self.printer.heaters.iteritems():
+        for t, therm in self.printer.heaters.items():
             for f, fan in enumerate(self.printer.fans):
                 if not self.printer.config.has_option('Cold-ends', "connect-therm-{}-fan-{}".format(t, f)):
                     continue
@@ -530,7 +530,7 @@ class Redeem:
 
 
         # Read end stop value again now that PRU is running
-        for _, es in self.printer.end_stops.iteritems():
+        for _, es in self.printer.end_stops.items():
             es.read_value()
 
         # Enable Stepper timeout
@@ -623,15 +623,15 @@ class Redeem:
         # Stops plugins
         self.printer.plugins.exit()
 
-        for name, stepper in self.printer.steppers.iteritems():
+        for name, stepper in self.printer.steppers.items():
             stepper.set_disabled()
         Stepper.commit()
 
-        for name, heater in self.printer.heaters.iteritems():
+        for name, heater in self.printer.heaters.items():
             logging.debug("closing "+name)
             heater.disable()
 
-        for name, comm in self.printer.comms.iteritems():
+        for name, comm in self.printer.comms.items():
             logging.debug("closing "+name)
             comm.close()
 
