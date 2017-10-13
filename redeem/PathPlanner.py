@@ -36,8 +36,8 @@ from Alarm import Alarm
 import traceback
 
 try:
-    from path_planner.PathPlannerNative import PathPlannerNative, AlarmCallbackNative
-except Exception, e:
+    from .path_planner.PathPlannerNative import PathPlannerNative, AlarmCallbackNative
+except ImportError as e:
     try:
         from _PathPlannerNative import PathPlannerNative, AlarmCallbackNative
     except:

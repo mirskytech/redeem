@@ -20,10 +20,14 @@ PathPlanner/PathPlanner.xcodeproj/xcuserdata
 PathPlanner/PathPlanner/build
 PathPlanner/PathPlanner/*.o
 PathPlanner/PathPlanner/*.dep
-PathPlanner/PathPlanner/PathPlannerNative_wrap.cpp
-PathPlanner/PathPlanner/PathPlannerNative.py
-path_planner/PathPlannerNative_wrap.h
+redeem/path_planner/PathPlanner/PathPlannerNative_wrap.cpp
+redeem/path_planner/PathPlanner/PathPlannerNative.py
 _PathPlannerNative.so
+
+redeem/path_planner/PathPlannerNative_wrap.cxx
+redeem/path_planner/PathPlannerNative_wrap.h
+redeem/path_planner/test_harness/PathPlannerMock.py
+redeem/path_planner/test_harness/PathPlannerMock_wrap.cxx
 
 # Ignore PyCharm settings
 /.idea
