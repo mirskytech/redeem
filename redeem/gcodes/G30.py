@@ -9,13 +9,14 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from .GCodeCommand import GCodeCommand
 import logging
 import json
 
-from ..Gcode import Gcode
-from ..Path import G92Path
-from ..Alarm import Alarm
+from .GCodeCommand import GCodeCommand
+from Gcode import Gcode
+from Path import G92Path
+from Alarm import Alarm
+
 
 class G30(GCodeCommand):
 

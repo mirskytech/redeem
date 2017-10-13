@@ -1,4 +1,4 @@
-from MockPrinter import MockPrinter
+from .MockPrinter import MockPrinter
 from Gcode import Gcode
 import unittest
 import mock

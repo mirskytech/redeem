@@ -1,4 +1,4 @@
-from MockPrinter import MockPrinter
+from .MockPrinter import MockPrinter
 from PruInterface import *
 import mock
 from Path import Path

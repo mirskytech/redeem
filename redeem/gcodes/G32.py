@@ -11,7 +11,7 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 
 from .GCodeCommand import GCodeCommand
 import logging
-from ..Gcode import Gcode
+from redeem.Gcode import Gcode
 
 
 class G32(GCodeCommand):
@@ -20,7 +20,7 @@ class G32(GCodeCommand):
         gcodes = self.printer.config.get("Macros", "G32").split("\n")
         self.printer.path_planner.wait_until_done()
         for gcode in gcodes:        
-            G = Gcode({"message": gcode, "parent": g})
+            G = Gcode.Gcode({"message": gcode, "parent": g})
             self.printer.processor.execute(G)
             self.printer.path_planner.wait_until_done()
 

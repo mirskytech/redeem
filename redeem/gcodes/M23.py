@@ -15,7 +15,7 @@ import logging
 from sh import mount, ErrorReturnCode_32
 from thread import start_new_thread
 
-from ..Gcode import Gcode
+from redeem.Gcode import Gcode
 from .GCodeCommand import GCodeCommand
 
 """

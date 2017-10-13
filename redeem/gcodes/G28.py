@@ -12,7 +12,7 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 import logging
 
 from .GCodeCommand import GCodeCommand
-from ..Path import G92Path
+from Path import G92Path
 
 
 class G28(GCodeCommand):

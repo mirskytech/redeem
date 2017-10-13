@@ -15,10 +15,10 @@ import numpy as np
 import copy
 
 from .GCodeCommand import GCodeCommand
-from ..Gcode import Gcode
-from ..Alarm import Alarm
-from ..Path import Path
-from ..BedCompensation import BedCompensation
+from Gcode import Gcode
+from Alarm import Alarm
+from Path import Path
+from BedCompensation import BedCompensation
 
 
 class G29(GCodeCommand):
