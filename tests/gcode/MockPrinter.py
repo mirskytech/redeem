@@ -6,32 +6,39 @@ sys.path.insert(0, '../redeem')
 # sys.path.insert(0, './gcode/TestStubs')
 
 sys.modules['evdev'] = mock.Mock()
-sys.modules['RotaryEncoder'] = mock.Mock()
-sys.modules['Watchdog'] = mock.Mock()
-sys.modules['GPIO'] = mock.Mock()
-sys.modules['Enable'] = mock.Mock()
-sys.modules['Key_pin'] = mock.Mock()
-sys.modules['GPIO'] = mock.Mock()
-sys.modules['DAC'] = mock.Mock()
-sys.modules['ShiftRegister.py'] = mock.Mock()
+sys.modules['redeem.RotaryEncoder'] = mock.Mock()
+sys.modules['redeem.Watchdog'] = mock.Mock()
+sys.modules['redeem.GPIO'] = mock.Mock()
+sys.modules['redeem.Enable'] = mock.Mock()
+sys.modules['redeem.Key_pin'] = mock.Mock()
+sys.modules['redeem.GPIO'] = mock.Mock()
+sys.modules['redeem.DAC'] = mock.Mock()
+sys.modules['redeem.ShiftRegister.py'] = mock.Mock()
 sys.modules['Adafruit_BBIO'] = mock.Mock()
 sys.modules['Adafruit_BBIO.GPIO'] = mock.Mock()
-sys.modules['StepperWatchdog'] = mock.Mock()
-sys.modules['StepperWatchdog.GPIO'] = mock.Mock()
-sys.modules['_PathPlannerNative'] = mock.Mock()
-sys.modules['PruInterface'] = mock.Mock()
-sys.modules['PruInterface'].PruInterface = mock.MagicMock() 
-sys.modules['PruFirmware'] = mock.Mock()
-sys.modules['HBD'] = mock.Mock()
-sys.modules['RotaryEncoder'] = mock.Mock()
-sys.modules['JoinableQueue'] = mock.Mock()
-sys.modules['USB'] = mock.Mock()
-sys.modules['Ethernet'] = mock.Mock()
-sys.modules['Pipe'] = mock.Mock()
+sys.modules['redeem.StepperWatchdog'] = mock.Mock()
+sys.modules['redeem.StepperWatchdog.GPIO'] = mock.Mock()
+sys.modules['redeem._PathPlannerNative'] = mock.Mock()
+sys.modules['redeem.PruInterface'] = mock.Mock()
+sys.modules['redeem.PruInterface'].PruInterface = mock.MagicMock()
+sys.modules['redeem.PruFirmware'] = mock.Mock()
+sys.modules['redeem.HBD'] = mock.Mock()
+sys.modules['redeem.RotaryEncoder'] = mock.Mock()
+sys.modules['redeem.JoinableQueue'] = mock.Mock()
+sys.modules['redeem.USB'] = mock.Mock()
+sys.modules['redeem.Ethernet'] = mock.Mock()
+sys.modules['redeem.Pipe'] = mock.Mock()
+
 
 from redeem.CascadingConfigParser import CascadingConfigParser
-from redeem.Redeem import *
+from redeem.Redeem import Redeem
+from redeem.PathPlanner import PathPlanner
 from redeem.EndStop import EndStop
+from redeem.Extruder import Extruder
+from redeem.Extruder import HBP
+from redeem.Path import Path
+from redeem.Gcode import Gcode
+import numpy as np
 
 
 """
@@ -69,7 +76,7 @@ class MockPrinter(unittest.TestCase):
         copyfile(os.path.join(os.path.dirname(__file__), "my_test_printer.cfg"), os.path.join(path, 'printer.cfg'))
 
         """
-        tf = open("../configs/local.cfg", "w")
+        tf = open("configs/local.cfg", "w")
         lines = """
 [System]
 log_to_file = False
@@ -84,7 +91,7 @@ log_to_file = False
     @mock.patch.object(EndStop, "_wait_for_event", new=None)
     @mock.patch.object(PathPlanner, "_init_path_planner")
     @mock.patch.object(CascadingConfigParser, "get_key")
-    @mock.patch("Redeem.CascadingConfigParser", new=CascadingConfigParserWedge)
+    @mock.patch("redeem.CascadingConfigParser", new=CascadingConfigParserWedge)
     def setUpClass(cls, mock_get_key, mock_init_path_planner):
 
         mock_get_key.return_value = "TESTING_DUMMY_KEY"
@@ -100,10 +107,10 @@ log_to_file = False
         class DisabledHBP(HBP):
             def enable(self):
                 pass
-        mock.patch('Redeem.Extruder', side_effect=DisabledExtruder).start()
-        mock.patch('Redeem.HBP', side_effect=DisabledHBP).start()
+        mock.patch('redeem.Extruder.Extruder', side_effect=DisabledExtruder).start()
+        mock.patch('redeem.Extruder.HBP', side_effect=DisabledHBP).start()
 
-        cfg_path = "../configs"
+        cfg_path = "configs/"
         cls.setUpConfigFiles(cfg_path)
 
         cls.R = Redeem(config_location=cfg_path)
@@ -134,10 +141,10 @@ log_to_file = False
     @classmethod
     def tearDownClass(cls):
         cls.R = cls.printer = None
-        if os.path.exists("../configs/local.cfg"):
-            os.remove("../configs/local.cfg")
-        if os.path.exists("../configs/printer.cfg"):
-            os.remove("../configs/printer.cfg")
+        if os.path.exists("configs/local.cfg"):
+            os.remove("configs/local.cfg")
+        if os.path.exists("configs/printer.cfg"):
+            os.remove("configs/printer.cfg")
 
     """ directly calls a Gcode class's execute method, bypassing printer.processor.execute """
     @classmethod
