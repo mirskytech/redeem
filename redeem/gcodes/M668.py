@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M668
 Adjust backlash compensation for each named axis
@@ -8,8 +9,8 @@ Author: Anthony Clay
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+from .GCodeCommand import GCodeCommand
 
 
 class M668(GCodeCommand):

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G134
 Use the current position as offsets
@@ -21,9 +22,10 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from GCodeCommand import GCodeCommand
-from redeem.Gcode import Gcode
 import logging
+
+from .GCodeCommand import GCodeCommand
+from ..Gcode import Gcode
 
 
 class G134(GCodeCommand):

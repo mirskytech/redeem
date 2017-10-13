@@ -1,12 +1,15 @@
+from __future__ import absolute_import
 """
 M574: set endstop action
 Author: Elias Bakken
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-import logging
 import os
+import logging
+
+from .GCodeCommand import GCodeCommand
+
 
 class M574(GCodeCommand):
 

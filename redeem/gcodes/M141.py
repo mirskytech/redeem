@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M141
 Set fan power and PWM frequency
@@ -8,8 +9,8 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+from .GCodeCommand import GCodeCommand
 
 class M141(GCodeCommand):
 

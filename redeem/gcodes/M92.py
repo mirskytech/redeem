@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M92
 Set number of steps per millimeters for each steppers
@@ -8,14 +9,11 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Stepper import Stepper
-    from Printer import Printer
-except ImportError:
-    from redeem.Stepper import Stepper
-    from redeem.Printer import Printer
 import logging
+
+from .GCodeCommand import GCodeCommand
+from ..Printer import Printer
+from ..Stepper import Stepper
 
 class M92(GCodeCommand):
 

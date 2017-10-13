@@ -1,11 +1,13 @@
+from __future__ import absolute_import
 """
 GCode M409
 Get filament sensor status
 Author: Elias Bakken
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+
+from .GCodeCommand import GCodeCommand
 
 
 class M409(GCodeCommand):

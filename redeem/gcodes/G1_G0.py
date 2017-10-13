@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G0 and G1
 Controlling printer head position
@@ -8,12 +9,8 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Path import Path, RelativePath, AbsolutePath, MixedPath
-except ImportError:
-    from redeem.Path import Path, RelativePath, AbsolutePath, MixedPath
-
+from .GCodeCommand import GCodeCommand
+from ..Path import Path, RelativePath, AbsolutePath, MixedPath
 import logging
 
 

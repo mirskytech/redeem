@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G30
 Single Z probe
@@ -8,17 +9,13 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
 import json
-try:
-    from Gcode import Gcode
-    from Path import G92Path
-    from Alarm import Alarm
-except ImportError:
-    from redeem.Gcode import Gcode
-    from redeem.Path import G92Path
-    from redeem.Alarm import Alarm
+
+from ..Gcode import Gcode
+from ..Path import G92Path
+from ..Alarm import Alarm
 
 class G30(GCodeCommand):
 

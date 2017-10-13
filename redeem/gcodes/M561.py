@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M561 
 
@@ -9,15 +10,13 @@ Author: Elias Bakken
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-import numpy as np
+import json
 import logging
-import json 
+import numpy as np
 
-try:
-    from BedCompensation import BedCompensation
-except ImportError:
-    from redeem.BedCompensation import BedCompensation
+from .GCodeCommand import GCodeCommand
+from ..BedCompensation import BedCompensation
+
 
 class M561(GCodeCommand):
 

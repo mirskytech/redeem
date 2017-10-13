@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G33
 Autocalibrate delta printer
@@ -19,17 +20,12 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 """
 
 import logging
-
 import numpy as np
+from .GCodeCommand import GCodeCommand
 
-from GCodeCommand import GCodeCommand
 
-try:
-    from Gcode import Gcode
-    from Path import Path
-except ImportError:
-    from redeem.Gcode import Gcode
-    from redeem.Path import Path
+from ..Gcode import Gcode
+from ..Path import Path
 
 
 class G33(GCodeCommand):

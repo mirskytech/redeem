@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G92
 Set current position of steppers without moving them
@@ -8,12 +9,10 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
-try:
-    from Path import G92Path
-except ImportError:
-    from redeem.Path import G92Path
+from .GCodeCommand import GCodeCommand
+from ..Path import G92Path
+
 
 class G92(GCodeCommand):
 

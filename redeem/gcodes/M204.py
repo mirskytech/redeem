@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M204  - set default acceleration
 
@@ -7,8 +8,8 @@ email: a.r.carlson AT me.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-import logging
+from .GCodeCommand import GCodeCommand
+
 
 
 class M204(GCodeCommand):

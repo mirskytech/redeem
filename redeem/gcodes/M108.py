@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M108
 Break out of a wait loop. 
@@ -8,7 +9,8 @@ Website: http://www.thing-printer.com
 License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
+
 
 class M108(GCodeCommand):
 

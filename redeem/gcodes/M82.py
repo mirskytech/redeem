@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M82
 Set the extruder mode to absoute
@@ -7,13 +8,9 @@ email: elias(at)iagent(dot)no
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Printer import Printer
-    from Path import Path
-except ImportError:
-    from redeem.Printer import Printer
-    from redeem.Path import Path
+from .GCodeCommand import GCodeCommand
+from ..Path import Path
+from ..Printer import Printer
 
 class M82(GCodeCommand):
 

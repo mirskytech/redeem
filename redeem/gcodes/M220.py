@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M220
 set speed factor override percentage :
@@ -8,7 +9,7 @@ Website: http://www.max.si
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
 
 class M220(GCodeCommand):

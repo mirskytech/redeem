@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M84
 Disable all steppers
@@ -9,11 +10,8 @@ License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
 import logging
-from GCodeCommand import GCodeCommand
-try:
-    from Stepper import Stepper
-except ImportError:
-    from redeem.Stepper import Stepper
+from .GCodeCommand import GCodeCommand
+from ..Stepper import Stepper
 
 class M84(GCodeCommand):
 

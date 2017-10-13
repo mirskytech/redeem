@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M23
 Select SD file
@@ -7,7 +8,6 @@ email: andrew@mirskytech.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 
 import os
 import logging
@@ -15,7 +15,8 @@ import logging
 from sh import mount, ErrorReturnCode_32
 from thread import start_new_thread
 
-from redeem.Gcode import Gcode
+from ..Gcode import Gcode
+from .GCodeCommand import GCodeCommand
 
 """
 auto - this is a special one. It will try to guess the fs type when you use this.

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G
 List all implemented G-codes (help)
@@ -8,7 +9,7 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 
 
 class G(GCodeCommand):

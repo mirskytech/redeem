@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M206
 Set home offset
@@ -18,7 +19,7 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
 
 from redeem.Printer import Printer

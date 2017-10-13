@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M906
 Set stepper current in mA
@@ -8,7 +9,7 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 
 
 class M906(GCodeCommand):

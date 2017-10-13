@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M303
 Run PID tuning 
@@ -15,8 +16,8 @@ Send the appropriate code and wait for the output to update the firmware.
 
 """
 
-from GCodeCommand import GCodeCommand
 import json
+from .GCodeCommand import GCodeCommand
 
 try:
     from Autotune import Autotune

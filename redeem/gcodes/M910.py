@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M910
 Set stepper decay mode
@@ -8,8 +9,9 @@ Website: http://www.thing-printer.com
 License: GPLv3
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
+
 
 class M910(GCodeCommand):
 

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M119
 Get current endstops state
@@ -8,9 +9,10 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-import logging
 import os
+import logging
+from .GCodeCommand import GCodeCommand
+
 
 class M119(GCodeCommand):
     def execute(self, g):

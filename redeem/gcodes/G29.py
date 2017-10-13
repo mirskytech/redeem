@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G29
 This is a macro function followed by saving the new bed matrix
@@ -8,21 +9,16 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
 import json
 import numpy as np
 import copy
-try:
-    from Gcode import Gcode
-    from Path import Path
-    from Alarm import Alarm
-    from BedCompensation import BedCompensation
-except ImportError:
-    from redeem.Gcode import Gcode
-    from redeem.Path import Path
-    from redeem.Alarm import Alarm
-    from redeem.BedCompensation import BedCompensation
+
+from .GCodeCommand import GCodeCommand
+from ..Gcode import Gcode
+from ..Alarm import Alarm
+from ..Path import Path
+from ..BedCompensation import BedCompensation
 
 
 class G29(GCodeCommand):

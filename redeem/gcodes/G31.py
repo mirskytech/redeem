@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G31
 Dock sled
@@ -8,12 +9,9 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-import logging
-try:
-    from Gcode import Gcode
-except ImportError:
-    from redeem.Gcode import Gcode
+from .GCodeCommand import GCodeCommand
+from ..Gcode import Gcode
+
 
 class G31(GCodeCommand):
 

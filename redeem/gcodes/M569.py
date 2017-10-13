@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 M569: Set or get axis direction values
 
@@ -12,7 +13,7 @@ Author: Elias Bakken
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
 import os
 

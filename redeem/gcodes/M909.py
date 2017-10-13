@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M909
 Set microstepping mode
@@ -8,12 +9,10 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Stepper import Stepper
-except ImportError:
-    from redeem.Stepper import Stepper
 import logging
+
+from .GCodeCommand import GCodeCommand
+from ..Stepper import Stepper
 
 
 class M909(GCodeCommand):

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M117
 Display a message. As a first implementation, just send to Toggle.
@@ -8,12 +9,9 @@ Website: http://www.thing-printer.com
 License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
+from ..Alarm import Alarm
 
-try:
-    from Alarm import Alarm
-except ImportError:
-    from redeem.Alarm import Alarm
 
 class M117(GCodeCommand):
     def execute(self, g):

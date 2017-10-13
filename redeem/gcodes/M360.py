@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M360
 Dump configuration 
@@ -8,13 +9,13 @@ Website: http://www.thing-printer.com
 License: GPLv3
 """
 
-from GCodeCommand import GCodeCommand
-import logging
 import json
-try:
-    from Alarm import Alarm
-except ImportError:
-    from redeem.Alarm import Alarm
+import logging
+
+from .GCodeCommand import GCodeCommand
+from ..Alarm import Alarm
+
+
 class M360(GCodeCommand):
 
     def execute(self, g):

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M665
 Set delta arm calibration values
@@ -8,13 +9,10 @@ Author: Anthony Clay
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Delta import Delta
-except ImportError:
-    from redeem.Delta import Delta
-
 import logging
+
+from .GCodeCommand import GCodeCommand
+from ..Delta import Delta
 
 
 class M665(GCodeCommand):

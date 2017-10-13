@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G21
 Setting units
@@ -8,7 +9,7 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
 
 class G20(GCodeCommand):

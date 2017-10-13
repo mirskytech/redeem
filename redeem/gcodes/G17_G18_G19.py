@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode G17, G18 and G19
 Set arc plane
@@ -8,11 +9,9 @@ Website: http://mirskytech.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Path import Path
-except ImportError:
-    from redeem.Path import Path
+from .GCodeCommand import GCodeCommand
+from ..Path import Path
+
 
 
 class G17(GCodeCommand):

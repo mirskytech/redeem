@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M400
 Wait until all buffered paths are executed
@@ -8,8 +9,9 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+
+from .GCodeCommand import GCodeCommand
 
 
 class M400(GCodeCommand):

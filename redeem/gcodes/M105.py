@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M105
 Get extruder temperature
@@ -8,7 +9,7 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import math
 
 class M105(GCodeCommand):
@@ -29,6 +30,7 @@ class M105(GCodeCommand):
         answer = "ok " + format_temperature(current_tool, "T")
 
         # Append heaters
+        # FIXME : py3
         for heater, data in sorted(self.printer.heaters.iteritems(), key=lambda(k,v): (v,k)):
             answer += " " + format_temperature(heater, data.prefix)
 

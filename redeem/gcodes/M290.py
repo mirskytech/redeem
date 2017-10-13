@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M290
 Babystepping
@@ -6,8 +7,9 @@ Author: Elias Bakken
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+
+from .GCodeCommand import GCodeCommand
 
 
 class M290(GCodeCommand):

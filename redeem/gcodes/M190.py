@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M190
 Set heated bed temperature and wait for it to be reached
@@ -8,11 +9,8 @@ Website: http://www.xwaves.net
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Gcode import Gcode
-except ImportError:
-    from redeem.Gcode import Gcode
+from .GCodeCommand import GCodeCommand
+from ..Gcode import Gcode
 
 
 class M190(GCodeCommand):

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M500
 Store parameters to file
@@ -8,8 +9,9 @@ Website: http://www.thing-printer.com
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+
+from .GCodeCommand import GCodeCommand
 
 
 class M500(GCodeCommand):

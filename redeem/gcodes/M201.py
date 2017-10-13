@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M202 & M201  - set acceleration
 
@@ -7,7 +8,7 @@ Website: http://www.max.si
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
+from .GCodeCommand import GCodeCommand
 import logging
 
 

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M557 
 Example: M557 P1 X30 Y40.5
@@ -13,8 +14,8 @@ Author: Elias Bakken
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import logging
+from .GCodeCommand import GCodeCommand
 
 
 class M557(GCodeCommand):

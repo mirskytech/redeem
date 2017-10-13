@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M221
 set extrude factor override percentage 
@@ -8,17 +9,14 @@ Website: http://www.max.si
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
-try:
-    from Path import Path, G92Path
-except ImportError:
-    from redeem.Path import Path, G92Path
+from .GCodeCommand import GCodeCommand
+from ..Path import Path, G92Path
 
 
 class M221(GCodeCommand):
 
     def execute(self, g):
-
+    # FIXME : mixed tabs and spaces
 	# restore previous position of E an H axis
 	if self.printer.movement == Path.ABSOLUTE:
             pos = self.printer.path_planner.get_current_pos()

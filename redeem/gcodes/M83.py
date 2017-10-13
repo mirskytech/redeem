@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 GCode M83
 Set the extruder mode to relative
@@ -7,15 +8,12 @@ email: elias(at)iagent(dot)no
 License: CC BY-SA: http://creativecommons.org/licenses/by-sa/2.0/
 """
 
-from GCodeCommand import GCodeCommand
 import os
 import logging
-try:
-    from Printer import Printer
-    from Path import Path
-except ImportError:
-    from redeem.Printer import Printer
-    from redeem.Path import Path
+
+from .GCodeCommand import GCodeCommand
+from ..Printer import Printer
+from ..Path import Path
 
 class M83(GCodeCommand):
 
