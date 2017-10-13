@@ -1,7 +1,7 @@
 from .MockPrinter import MockPrinter
 from PruInterface import *
 import mock
-from Path import Path
+from redeem.Path import Path
 from random import random
 
 class M119_Tests(MockPrinter):

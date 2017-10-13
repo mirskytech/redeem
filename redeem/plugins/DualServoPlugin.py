@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Plugin for using dual extruder with a servo.
 
@@ -21,14 +22,14 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from AbstractPlugin import AbstractPlugin
+from .AbstractPlugin import AbstractPlugin
 import logging
 try:
     from gcodes.GCodeCommand import GCodeCommand
-    from Stepper import Stepper
-    from Servo import Servo
-    from Path import Path
-    from Printer import Printer
+    from .Stepper import Stepper
+    from .Servo import Servo
+    from .Path import Path
+    from .Printer import Printer
 except ImportError:
     from redeem.gcodes.GCodeCommand import GCodeCommand
     from redeem.Stepper import Stepper

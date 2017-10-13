@@ -21,7 +21,7 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from Adafruit_I2C import Adafruit_I2C 
+from .Adafruit_I2C import Adafruit_I2C
 import time
 import subprocess
 

@@ -1,4 +1,5 @@
 #!/usr/bin/python
+from __future__ import absolute_import
 """
 Redeem main program. This should run on the BeagleBone.
 
@@ -32,39 +33,43 @@ import signal
 import threading
 from threading import Thread
 from multiprocessing import JoinableQueue
-import Queue
+try:
+    import Queue
+except ImportError as e:
+    from queue import Queue
+
 import numpy as np
 import sys
 
-from Mosfet import Mosfet
-from Stepper import *
-from TemperatureSensor import *
-from Fan import Fan
-from Servo import Servo
-from EndStop import EndStop
-from USB import USB
-from Pipe import Pipe
-from Ethernet import Ethernet
-from Extruder import Extruder, HBP
-from Cooler import Cooler
-from Path import Path
-from PathPlanner import PathPlanner
-from Gcode import Gcode
-from ColdEnd import ColdEnd
-from PruFirmware import PruFirmware
-from CascadingConfigParser import CascadingConfigParser
-from Printer import Printer
-from GCodeProcessor import GCodeProcessor
-from PluginsController import PluginsController
-from Delta import Delta
-from Enable import Enable
-from PWM import PWM
-from RotaryEncoder import *
-from FilamentSensor import *
-from Alarm import Alarm, AlarmExecutor
-from StepperWatchdog import StepperWatchdog
-from Key_pin import Key_pin, Key_pin_listener
-from Watchdog import Watchdog
+from .Mosfet import Mosfet
+from .Stepper import *
+from .TemperatureSensor import *
+from .Fan import Fan
+from .Servo import Servo
+from .EndStop import EndStop
+from .USB import USB
+from .Pipe import Pipe
+from .Ethernet import Ethernet
+from .Extruder import Extruder, HBP
+from .Cooler import Cooler
+from .Path import Path
+from .PathPlanner import PathPlanner
+from .Gcode import Gcode
+from .ColdEnd import ColdEnd
+from .PruFirmware import PruFirmware
+from .CascadingConfigParser import CascadingConfigParser
+from .Printer import Printer
+from .GCodeProcessor import GCodeProcessor
+from .PluginsController import PluginsController
+from .Delta import Delta
+from .Enable import Enable
+from .PWM import PWM
+from .RotaryEncoder import *
+from .FilamentSensor import *
+from .Alarm import Alarm, AlarmExecutor
+from .StepperWatchdog import StepperWatchdog
+from .Key_pin import Key_pin, Key_pin_listener
+from .Watchdog import Watchdog
 
 # Global vars
 printer = None

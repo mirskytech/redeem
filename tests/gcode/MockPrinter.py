@@ -29,9 +29,9 @@ sys.modules['USB'] = mock.Mock()
 sys.modules['Ethernet'] = mock.Mock()
 sys.modules['Pipe'] = mock.Mock()
 
-from CascadingConfigParser import CascadingConfigParser
-from Redeem import *
-from EndStop import EndStop
+from redeem.CascadingConfigParser import CascadingConfigParser
+from redeem.Redeem import *
+from redeem.EndStop import EndStop
 
 
 """

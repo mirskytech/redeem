@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Plugin for HPX2 Max Extruder from DGlass3D
 http://www.dglass3d.com/products/hpx2max/
@@ -30,13 +31,13 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from AbstractPlugin import AbstractPlugin
+from .AbstractPlugin import AbstractPlugin
 import logging
 try:
-    from gcodes.GCodeCommand import GCodeCommand
-    from Stepper import Stepper
-    from Servo import Servo
-    from Path import Path
+    from .gcodes.GCodeCommand import GCodeCommand
+    from .Stepper import Stepper
+    from .Servo import Servo
+    from .Path import Path
 except ImportError:
     from redeem.gcodes.GCodeCommand import GCodeCommand
     from redeem.Stepper import Stepper

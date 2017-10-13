@@ -17,17 +17,21 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  You should have received a copy of the GNU General Public License
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
+try:
+    from ConfigParser import SafeConfigParser
+except ImportError as e:
+    from configparser import ConfigParser as SafeConfigParser
 
-import ConfigParser
+
 import os
 import logging
 import struct
 
 
-class CascadingConfigParser(ConfigParser.SafeConfigParser):
+class CascadingConfigParser(SafeConfigParser):
     def __init__(self, config_files):
 
-        ConfigParser.SafeConfigParser.__init__(self)
+        SafeConfigParser.__init__(self)
 
         # Write options in the case it was read.
         # self.optionxform = str
@@ -92,7 +96,7 @@ class CascadingConfigParser(ConfigParser.SafeConfigParser):
         for config_file in self.config_files:
             if os.path.isfile(config_file):
                 c_file = os.path.basename(config_file)
-                cp = ConfigParser.SafeConfigParser()
+                cp = SafeConfigParser()
                 cp.readfp(open(config_file))
                 fs.append((c_file, cp))
 
@@ -122,7 +126,7 @@ class CascadingConfigParser(ConfigParser.SafeConfigParser):
                     to_save.append((section, option, val, old))
 
         # Update local config with changed values
-        local = ConfigParser.SafeConfigParser()
+        local = SafeConfigParser()
         local.readfp(open(filename, "r"))
         for opt in to_save:
             (section, option, value, old) = opt
@@ -138,9 +142,9 @@ class CascadingConfigParser(ConfigParser.SafeConfigParser):
 
     def check(self, filename):
         """ Check the settings currently set against default.cfg """
-        default = ConfigParser.SafeConfigParser()
+        default = SafeConfigParser()
         default.readfp(open(os.path.join(self.config_location, "default.cfg")))
-        local   = ConfigParser.SafeConfigParser()
+        local   = SafeConfigParser()
         local.readfp(open(filename))
 
         local_ok = True
@@ -186,4 +190,4 @@ if __name__ == '__main__':
                     format='%(asctime)s %(name)-12s %(levelname)-8s %(message)s',
                     datefmt='%m-%d %H:%M')
     c = CascadingConfigParser(["/etc/redeem/default.cfg", "/etc/redeem/printer.cfg", "/etc/redeem/local.cfg"])
-    print c.get_default_settings()
+    print(c.get_default_settings())

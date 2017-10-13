@@ -1,9 +1,9 @@
 from .MockPrinter import MockPrinter
 import mock
-from Gcode import Gcode
+from redeem.Gcode import Gcode
 from random import random
 import math
-from Fan import Fan
+from redeem.Fan import Fan
 
 class M106_M107_Tests(MockPrinter):
 

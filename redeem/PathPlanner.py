@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Path planner for Replicape. Just add paths to
 this and they will be executed as soon as no other
@@ -25,18 +26,18 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 """
 
 import logging
-from Path import Path, AbsolutePath, RelativePath, G92Path
-from Delta import Delta
-from Printer import Printer
+from .Path import Path, AbsolutePath, RelativePath, G92Path
+from .Delta import Delta
+from .Printer import Printer
 import numpy as np
-from PruInterface import PruInterface
+from .PruInterface import PruInterface
 from BedCompensation import BedCompensation
-from DeltaAutoCalibration import delta_auto_calibration
-from Alarm import Alarm
+from .DeltaAutoCalibration import delta_auto_calibration
+from .Alarm import Alarm
 import traceback
 
 try:
-    from .path_planner.PathPlannerNative import PathPlannerNative, AlarmCallbackNative
+    from redeem.path_planner.PathPlannerNative import PathPlannerNative, AlarmCallbackNative
 except ImportError as e:
     try:
         from _PathPlannerNative import PathPlannerNative, AlarmCallbackNative

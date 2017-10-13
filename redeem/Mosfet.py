@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import absolute_import
 """
 A Mosfet class for setting the PWM of a power mosfet for Replicape.
 
@@ -21,7 +22,8 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from PWM import PWM
+from .PWM import PWM
+
 
 class Mosfet(PWM):   
     def __init__(self, channel):

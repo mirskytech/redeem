@@ -1,7 +1,7 @@
 from .MockPrinter import MockPrinter
 import mock
 from random import random
-from Stepper import Stepper_00A4
+from redeem.Stepper import Stepper_00A4
 
 class M19_Tests(MockPrinter):
 

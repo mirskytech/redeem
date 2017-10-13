@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 """
 Printer class holding all printer components
 
@@ -20,10 +21,10 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
  along with Redeem.  If not, see <http://www.gnu.org/licenses/>.
 """
 
-from Path import Path
+from .Path import Path
 import numpy as np
 import logging
-from Delta import Delta
+from .Delta import Delta
 from PruInterface import PruInterface
 import os
 import json
