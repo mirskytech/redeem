@@ -33,11 +33,12 @@ from PruInterface import PruInterface
 from BedCompensation import BedCompensation
 from DeltaAutoCalibration import delta_auto_calibration
 from Alarm import Alarm
+from six import iteritems
 import traceback
 
 try:
     from path_planner.PathPlannerNative import PathPlannerNative, AlarmCallbackNative
-except Exception, e:
+except Exception as e:
     try:
         from _PathPlannerNative import PathPlannerNative, AlarmCallbackNative
     except:
@@ -179,7 +180,7 @@ class PathPlanner:
         # Note: This method has to be thread safe as it can be called from the
         # command thread directly or from the command queue thread
         self.native_planner.suspend()
-        for name, stepper in self.printer.steppers.iteritems():
+        for name, stepper in iteritems(self.printer.steppers):
             stepper.set_disabled(True)
 
         #Create a new path planner to have everything clean when it restarts
@@ -519,7 +520,7 @@ if __name__ == '__main__':
          133.33333333 * (2 ** 4) * 1000.0, 33.4375 * (2 ** 4) * 1000.0,
          33.4375 * (2 ** 4) * 1000.0])
 
-    print "Making steppers"
+    print("Making steppers")
 
     steppers = {}
 
