@@ -23,12 +23,17 @@ License: GNU GPL v3: http://www.gnu.org/copyleft/gpl.html
 from threading import Thread
 import time
 import math
-import Queue
-import numpy as np
+
+try:  # TODO : remove after python 3 upgrade
+    import Queue
+except ImportError:
+    from queue import Queue
+
 from multiprocessing import JoinableQueue
 import logging
 from PWM_pin import PWM_pin
 from ShiftRegister import ShiftRegister
+
 
 class Servo:
     def __init__(self, channel, pulse_width_min, pulse_width_max, angle_min, angle_max, init_angle, turnoff_timeout=0):
