@@ -32,7 +32,12 @@ import signal
 import threading
 from threading import Thread
 from multiprocessing import JoinableQueue
-import Queue
+
+try:  # TODO : remove after python 3 upgrade
+    import Queue
+except ImportError:
+    from queue import Queue
+
 import numpy as np
 import sys
 

@@ -22,8 +22,13 @@ import time
 import logging
 
 from multiprocessing import JoinableQueue
-import Queue
+
 from six import iteritems
+
+try:  # TODO : remove after python 3 upgrade
+    import Queue
+except ImportError:
+    from queue import Queue
 
 
 class Alarm:

@@ -24,11 +24,17 @@ from threading import Thread
 from builtins import range
 import time
 import math
-import Queue
+
+try:  # TODO : remove after python 3 upgrade
+    import Queue
+except ImportError:
+    from queue import Queue
+
 from multiprocessing import JoinableQueue
 import logging
 from PWM_pin import PWM_pin
 from ShiftRegister import ShiftRegister
+
 
 class Servo:
     def __init__(self, channel, pulse_width_min, pulse_width_max, angle_min, angle_max, init_angle, turnoff_timeout=0):
