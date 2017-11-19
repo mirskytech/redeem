@@ -1,4 +1,3 @@
-
 Replicape Development
 =====================
 
@@ -36,7 +35,7 @@ BeagleBone Connections
 
 Below is a diagram of the pins that have been used on the BeagleBone.
 
-..  figure:: media/beaglebone_replicape_pinout.png
+..  figure:: media/replicape_reach_pinout.png
 
 Thermistor Inputs
 -----------------
